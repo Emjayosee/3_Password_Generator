@@ -8,12 +8,6 @@
 </head>
 <body>
     
-
-<!-- <h2>Monthly Password Routine - Press button to get a New Password</h2>
-
-<button onclick="myFunction()">New Password</button>
-
-<p id="demo"></p> -->
 <div class="wrapper">
   <header>
     <h1>Mjoc's Password Generator</h1>
@@ -23,39 +17,30 @@
       <h2>Identify the Desired Password Parameters:</h2>
       <h5>(enter length or check box(es)):</h5>
 
-      <!-- <form action="/action_page.php"> -->
-        
-        <label class="label" for="length">Password Length </label><input type="value" id="length" name="length" value= 8><label for="length"> (Note: between 8 and 128)</label><br>
-        <input type="checkbox" id="paranumber" name="numbers" value="Numbers">
+     <form> 
+        <label class="label" for="length">Password Length </label><input type="value" id="length" name="length" value= "8" size="5"><label for="length"> (Note: between 8 and 128)</label><br>
+        <input class=" label" type="checkbox" id="paranumber" name="numbers" value=""  checked>
         <label class="label" for="paranumber"> Numbers</label><br>
-        <input type="checkbox" id="paraupper" name="upper" value="Upper">
+        <input type="checkbox" id="paraupper" name="upper" value=""  unchecked>
         <label class="label" for="paraupper"> Upper Case Letters</label><br>
-        <input type="checkbox" id="paralower" name="lower" value="Lower">
+        <input type="checkbox" id="paralower" name="lower" value=""  unchecked>
         <label class="label" for="paralower"> Lower Case Letters</label><br>
-        <input type="checkbox" id="paraspecial" name="lower" value="Lower">
+        <input type="checkbox" id="paraspecial" name="lower" value=""  unchecked>
         <label class="label" for="paraspecial"> Special Letters</label><br><br>
-
-      <!-- </form> -->
+    </form>  
+      
     </div>
     <div class="card-body">
+      <div class="card-footer">
+        <button id="password" class="btn" onclick="runrandomstring()">Press to Get Password</button>
+      </div>
+      
+      <p class="answer" id="answer"></p>
 
-      <!-- REMOVED FROM STARTER HTML FILE 
-        <textarea
-        readonly
-        id="password"
-        placeholder= new_password_will_appear_here
-        aria-label="Generated Password"
-      ></textarea> -->
-      <br>
-      <form name="result">
-      <label>Your new password is <input width = 100 type="text" name="randomfield" value=""></label>
-      </form>
     </div>
-    <div class="card-footer">
-      <button id="generate" class="btn" onclick="randomString()">Generate New Password</button>
-    </div>
+    
   </div>
-
+  
 </div>
 
 <script>
@@ -75,20 +60,36 @@
 // Add event listener to generate button
 //generateBtn.addEventListener("click", writePassword);
 
-function randomString() {
+// function randomString() {
   var numbers = "0123456789";
-  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXTZ"
-  var lower = "abcdefghiklmnopqrstuvwxyz"
-  var special = "\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lower = "abcdefghiklmnopqrstuvwxyz";
+  var special = "#$%&()*+/=?@[]^_{|}";
   var characters = numbers + upper + lower + special ;
-	var string_length = 8;
-  var randomstring = '';
+  var password = '';
   
+  function runrandomstring(event){
+    //  event.preventDefault()
+  var string_length = document.querySelector("#length").value;;          
+  // check values before generating password:
+  var usenumbers = document.querySelector("#paranumber").checked
+  var useupper = document.querySelector("#paraupper").checked
+  var uselower = document.querySelector("#paralower").checked
+  var usespecial = document.querySelector("#paraspecial").checked
+  var characters =( usenumbers ? numbers : '' )
+          +( useupper ? upper : '' )
+          +( uselower  ? lower : '' )
+          +( usespecial ? special : '' )
+        
 //Validation if the length has been entered. 
-//   if (length = "") {
-//   function errorMessage() {
+// function alertFunction(event) {
+//   if (length === "") {
 //   alert("Enter a value between 8 and 128, inclusive.");
+//   }
 // }
+
+
+
   //    if (length = <8 -- >128) {
   //     function errorMessage() {
   // alert("Enter a value between 8 and 128, inclusive.");
@@ -101,11 +102,17 @@ function randomString() {
 // }
 
 // CALCULATION LOOP FOR DETERMINING randomstring:
-	for (var i=0; i<string_length; i++) {
+  var password = ""
+  // var password = str.bold();
+{
+  for (var i=0; i<string_length; i++) {
 		var rnum = Math.floor(Math.random() * characters.length);
-		randomstring += characters.substring(rnum,rnum+1);
+		password += characters.substring(rnum,rnum+1);
 	}
-  document.result.randomfield.value = randomstring;
+  document.querySelector("#password")
+  
+  document.getElementById("answer").innerHTML = "Password:     " + password;
+}
 }
 
 //   if (paranumber = true) {
@@ -126,7 +133,5 @@ function randomString() {
 // }
 
 </script>
-
-
 </body>
 </html>
