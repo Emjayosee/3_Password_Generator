@@ -103,22 +103,23 @@ button[disabled] {
   appearance: none;
   border: none;
   display: block;
-  width: 100%;
+  width: 95%;
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 85px;
+  padding-bottom: 25px;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
   border: 2px dashed #c0c7cf;
-  border-radius: 6px;
+  border-radius:6px;
+  background-color: green;
   resize: none;
   overflow: hidden;
 }
 
-@media (max-width: 690px) {
+/* @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
@@ -134,8 +135,19 @@ button[disabled] {
   .btn {
     font-size: 0.8rem;
   }
-}
+} */
 
-#generate {
-    background-color: green;
+.answer {
+  border:none;
+  padding: 20px;
+  margin: 20px;
+  font-size: 16px;
+  word-wrap: break-word;
+  width: 75;
+  height:200;
+  background-color: rgb(238, 225, 41);
+  /* opacity: 0.5; */
 }
+ .label {
+   text-align: right;
+ }
