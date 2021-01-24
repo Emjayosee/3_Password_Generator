@@ -77,5 +77,5 @@ The following items should be considered for future enhancements, time and budge
 
 See Current Rendering at the time of writing in the Assignment01 Repo. 
 ![alt text](Images/Rendering_default.png)
-![alt text](Images/Rendering_default_executed.png)
+![alt text](Images/Rendering_Default_executed.png)
 ![alt text](Images/Rendering_with_Data_Choices.png)
