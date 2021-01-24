@@ -1,137 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mjoc Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mjoc Password Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    
-<div class="wrapper">
-  <header>
-    <h1>Mjoc's Password Generator</h1>
-  </header>
-  <div class="card">
-    <div class="card-header">
-      <h2>Identify the Desired Password Parameters:</h2>
-      <h5>(enter length or check box(es)):</h5>
 
-     <form> 
-        <label class="label" for="length">Password Length </label><input type="value" id="length" name="length" value= "8" size="5"><label for="length"> (Note: between 8 and 128)</label><br>
-        <input class=" label" type="checkbox" id="paranumber" name="numbers" value=""  checked>
-        <label class="label" for="paranumber"> Numbers</label><br>
-        <input type="checkbox" id="paraupper" name="upper" value=""  unchecked>
-        <label class="label" for="paraupper"> Upper Case Letters</label><br>
-        <input type="checkbox" id="paralower" name="lower" value=""  unchecked>
-        <label class="label" for="paralower"> Lower Case Letters</label><br>
-        <input type="checkbox" id="paraspecial" name="lower" value=""  unchecked>
-        <label class="label" for="paraspecial"> Special Letters</label><br><br>
-    </form>  
-      
-    </div>
-    <div class="card-body">
-      <div class="card-footer">
-        <button id="password" class="btn" onclick="runrandomstring()">Press to Get Password</button>
+  <div class="wrapper">
+    <header>
+      <h1>Mjoc's Password Generator</h1>
+    </header>
+    <div class="card">
+      <div class="card-header">
+        <h2>Identify Your Desired Password Parameters:</h2>
+
+        <form>
+
+          <label class="label" for="length">STEP 1: Use slider to select password length between 8 and 128 characters:
+          </label><br>
+          <input type="range" id="length" name="rangeInput" min="8" max=128 value="8" step="1"
+            onchange="updateTextInput(this.value)">
+          <input type="text" id="textInput" size="3" value="8"><label> characters selected</label>
+          <p>STEP 2: Choose at least one of the following character set types:</p>
+          <input class="label" type="checkbox" id="paranumber" name="numbers" value="" checked onclick="resetPassword()">
+          <label class="label" for="paranumber"> Numbers (default)</label><br>
+          <input type="checkbox" id="paraupper" name="upper" value="" onclick="resetPassword()">
+          <label class="label" for="paraupper"> Upper Case Letters</label><br>
+          <input type="checkbox" id="paralower" name="lower" value="" onclick="resetPassword()">
+          <label class="label" for="paralower"> Lower Case Letters</label><br>
+          <input type="checkbox" id="paraspecial" name="lower" value="" onclick="resetPassword()">
+          <label class="label" for="paraspecial"> Special Letters</label><br>
+          <input type="reset" value="Reset" onclick="resetPassword()"><br>
+
+        </form>
+        <br>
+
       </div>
-      
-      <p class="answer" id="answer"></p>
+      <div class="card-body">
+        <div class="card-footer">
+          <button id="password" class="btn" onclick="runrandomstring()">Press to Get Password</button>
+        </div>
+
+        <p class="answer" id="answer"></p>
+        
+
+      </div>
 
     </div>
-    
+
   </div>
-  
-</div>
 
-<script>
+  <script src="script.js"></script>
 
-// Assignment Code
-// var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
-
-// function randomString() {
-  var numbers = "0123456789";
-  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var lower = "abcdefghiklmnopqrstuvwxyz";
-  var special = "#$%&()*+/=?@[]^_{|}";
-  var characters = numbers + upper + lower + special ;
-  var password = '';
-  
-  function runrandomstring(event){
-    //  event.preventDefault()
-  var string_length = document.querySelector("#length").value;;          
-  // check values before generating password:
-  var usenumbers = document.querySelector("#paranumber").checked
-  var useupper = document.querySelector("#paraupper").checked
-  var uselower = document.querySelector("#paralower").checked
-  var usespecial = document.querySelector("#paraspecial").checked
-  var characters =( usenumbers ? numbers : '' )
-          +( useupper ? upper : '' )
-          +( uselower  ? lower : '' )
-          +( usespecial ? special : '' )
-        
-//Validation if the length has been entered. 
-// function alertFunction(event) {
-//   if (length === "") {
-//   alert("Enter a value between 8 and 128, inclusive.");
-//   }
-// }
-
-
-
-  //    if (length = <8 -- >128) {
-  //     function errorMessage() {
-  // alert("Enter a value between 8 and 128, inclusive.");
-// }
-//   function errorMessage() {
-//   alert("Enter a value between 8 and 128, inclusive.");
-// }
-// } else { [set string_length = amount specified in length]
-
-// }
-
-// CALCULATION LOOP FOR DETERMINING randomstring:
-  var password = ""
-  // var password = str.bold();
-{
-  for (var i=0; i<string_length; i++) {
-		var rnum = Math.floor(Math.random() * characters.length);
-		password += characters.substring(rnum,rnum+1);
-	}
-  document.querySelector("#password")
-  
-  document.getElementById("answer").innerHTML = "Password:     " + password;
-}
-}
-
-//   if (paranumber = true) {
-//     [include number in characters]
-//   }
-
-//   if (paraupper = true) {
-//     [include upper in characters]
-//   }
-
-//   if (paralower = true) {
-//     [include lower in characters]
-//   }
-
-//   if (paraspecial = true) {
-//     [include special in characters]
-//   }
-// }
-
-</script>
+  <div class="footer">
+    <p><i>&#169;Emjayo'see, 2021</i></p>
+  </div>
 </body>
+
 </html>

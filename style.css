@@ -1,13 +1,17 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+/* This is the stylesheet to my Password Generator Website it is
+organized top down to match the HTML flow.  Much of the CSS styling is self explanatory due to the semantic HTML used in the associated file. */
+
+/*last updated by Michael O'Connor, January 24, 2021*/
+
+
+/* I have largely used the client's starter text to format things accordingly but incorporated the background image in the html area to ensure coverage of the entire viewport.*/
 
 html,
 body,
 .wrapper {
   height: 100%;
+  background-image: url(../Assignment03/IMG_2014.jpeg);
+  background-size: auto;
   margin: 0;
   padding: 0;
 }
@@ -27,7 +31,7 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: white;
 }
 
 .card {
@@ -97,6 +101,13 @@ button[disabled] {
   float: right;
 }
 
+#textInput {
+  border: none;
+  width: 75;
+  text-align: right;
+  pointer-events: none;   /* not that I have used this atribute to ensure that the value cannot be over-written */
+}
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -119,24 +130,6 @@ button[disabled] {
   overflow: hidden;
 }
 
-/* @media (max-width: 690px) {
-  .btn {
-    font-size: 1rem;
-    margin: 16px 0px 0px 0px;
-    padding: 10px 15px;
-  }
-
-  #password {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .btn {
-    font-size: 0.8rem;
-  }
-} */
-
 .answer {
   border:none;
   padding: 20px;
@@ -146,8 +139,20 @@ button[disabled] {
   width: 75;
   height:200;
   background-color: rgb(238, 225, 41);
-  /* opacity: 0.5; */
 }
  .label {
    text-align: right;
  }
+
+ /* I have added a strip of cloud image in the footer*/
+.footer  {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-image: url(../Assignment03/IMG_2014_Footer.jpeg);
+  color:rgb(83, 83, 83);
+  text-align: center;
+  font-size: 10px;
+  margin-top: 0px;
+}
