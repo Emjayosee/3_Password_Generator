@@ -2,9 +2,9 @@
 This is the repo for the Password Generator assignment 3, due Jan 22, 2021.
 
 
-# Unit 02 CSS and Bootstrap Homework: Responsive Portfolio Assignment
+# Unit 03 Javascript Homework: Password Generator
 
-Portfolio: January 24, 2021, Michael O'Connor, WebDev Wannabe, 604 765-6061
+Submitted: January 24, 2021, Michael O'Connor, WebDev Wannabe, 604 765-6061
 
 # 01 Goal: The Goal of this project is to use the starter code and create a  password generator that will populate a password based on user defined criteria, for password length between 8 and 128 characters, using character sets that include either or all of numbers, uppercase, lowercase and special characters.  Here is a link to the Github folder https://github.com/Emjayosee/Assignment03 and a link to the deployed website https://emjayosee.github.io/Assignment03/.
 
@@ -76,6 +76,6 @@ The following items should be considered for future enhancements, time and budge
 # 06 Current Renderings:
 
 See Current Rendering at the time of writing in the Assignment01 Repo. 
-![alt text](Images/Rendering_default.png)
-![alt text](Images/Rendering_Default_executed.png)
-![alt text](Images/Rendering_with_Data_Choices.png)
+![alt text](Assets/Images/Rendering_default.png)
+![alt text](Assets/Images/Rendering_Default_executed.png)
+![alt text](Assets/Images/Rendering_with_Data_Choices.png)
