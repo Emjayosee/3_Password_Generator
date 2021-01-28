@@ -40,6 +40,15 @@ I have not used all of the special characters available since some are difficult
       var useupper = document.querySelector("#paraupper").checked
       var uselower = document.querySelector("#paralower").checked
       var usespecial = document.querySelector("#paraspecial").checked
+
+      if (usenumbers == false && useupper == false && uselower == false && usespecial == false)
+      {alert("You need to choose at least once character set")
+    }
+        
+  
+
+
+
       var characters = (usenumbers ? numbers : '')
         + (useupper ? upper : '')
         + (uselower ? lower : '')
@@ -49,13 +58,13 @@ I have not used all of the special characters available since some are difficult
       var password = ""
 
       {    
-        for (var i = 0; i < string_length; i++) {
-          var rnum = Math.floor(Math.random() * characters.length);
-          password += characters.substring(rnum, rnum + 1);
+        for (var i = 0; i < string_length; i++) {    //specifies the duration to run the loop
+          var rnum = Math.floor(Math.random() * characters.length);   // the calculation
+          password += characters.substring(rnum, rnum + 1);        // append / add to the password string
         }
 
         // send the answer to the password solution box
-
+        document.querySelector("#answer").style.setProperty("background-color","yellow");
         document.getElementById("answer").innerHTML = "Password:     " + password;
       }
     }

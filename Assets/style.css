@@ -138,7 +138,7 @@ button[disabled] {
   word-wrap: break-word;
   width: 75;
   height:200;
-  background-color: rgb(238, 225, 41);
+  background-color: white);
 }
  .label {
    text-align: right;
